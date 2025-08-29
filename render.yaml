@@ -1,0 +1,29 @@
+version: "1"
+services:
+  - type: web
+    name: hindi-quiz-backend
+    env: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python src/main.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: hindi-quiz-db
+          property: connectionString
+      - key: SENDER_EMAIL
+        sync: false
+      - key: SENDER_PASSWORD
+        sync: false
+    healthCheckPath: /health
+    
+databases:
+  - name: hindi-quiz-db
+    plan: free
+    databaseName: hindi_quiz
+    user: quiz_user
+
