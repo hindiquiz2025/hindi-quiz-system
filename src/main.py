@@ -27,7 +27,7 @@ app.register_blueprint(health_bp)
 database_url = os.environ.get('DATABASE_URL')
 if database_url:
     # Production: Use PostgreSQL from Render
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz.db'
 else:
     # Development: Use SQLite
     app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
