@@ -137,8 +137,8 @@ def send_quiz_email():
         # Email configuration (you would need to set up SMTP credentials)
         smtp_server = "smtp.gmail.com"
         smtp_port = 587
-        sender_email = os.getenv('SENDER_EMAIL', 'your-email@gmail.com')
-        sender_password = os.getenv('SENDER_PASSWORD', 'your-app-password')
+        sender_email = os.getenv('SENDER_EMAIL', 'hindiquiz2025@gmail.com')
+        sender_password = os.getenv('SENDER_PASSWORD', 'xixkpodgmeenjtli')
         
         subject = "हिंदी राजभाषा प्रश्नोत्तरी में भाग लें"
         
